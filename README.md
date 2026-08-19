@@ -6,6 +6,8 @@ Frontend-only Vue 3 mock for a cold-email pitch. It is **not** the live website 
 
 Live practice: [dentalcareonyellowbluff.com](https://dentalcareonyellowbluff.com)
 
+**Architecture, colors, type, and “where to edit”:** [docs/project.md](docs/project.md)
+
 ## What’s in this mock
 
 - Home, Services, Team, and Visit pages

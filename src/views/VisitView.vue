@@ -14,42 +14,44 @@ const status = computed(() => getOpenStatus())
     title="Come see us on Yellow Bluff."
     copy="Call, get directions, or request a callback. New patients are welcome."
   >
-    <p class="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm text-ink">
-      <Clock class="h-4 w-4 text-brand" />
+    <p
+      class="mt-5 inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-cream/80 px-3 py-1.5 text-sm text-ink"
+    >
+      <Clock class="h-4 w-4 text-brand" :stroke-width="1.75" />
       {{ status.label }}
     </p>
   </PageHero>
 
-  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2">
+  <section class="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-2">
     <div>
-      <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-ink/8">
-        <h2 class="font-serif text-2xl text-ink">Office</h2>
-        <p class="mt-3 flex items-start gap-2 text-ink-muted">
-          <MapPin class="mt-0.5 h-4 w-4 text-brand" />
+      <div class="card rounded-2xl p-6">
+        <h2 class="text-lg font-semibold tracking-tight text-ink">Office</h2>
+        <p class="mt-3 flex items-start gap-2 text-sm text-ink-muted">
+          <MapPin class="mt-0.5 h-4 w-4 text-brand" :stroke-width="1.75" />
           <span>{{ practice.addressLine1 }}<br />{{ practice.addressLine2 }}</span>
         </p>
         <a
           :href="practice.phoneHref"
-          class="mt-4 inline-flex items-center gap-2 font-semibold text-brand"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand"
         >
-          <Phone class="h-4 w-4" />
+          <Phone class="h-4 w-4" :stroke-width="1.75" />
           {{ practice.phoneDisplay }}
         </a>
 
-        <ul class="mt-6 space-y-2 text-sm">
+        <ul class="mt-6 space-y-0 text-sm">
           <li
             v-for="entry in practice.hours"
             :key="entry.day"
-            class="flex justify-between border-b border-ink/8 py-2"
+            class="flex justify-between border-b border-ink/10 py-2"
           >
             <span>{{ entry.day }}</span>
-            <span>{{ entry.closed ? 'Closed' : `${entry.open} – ${entry.close}` }}</span>
+            <span class="text-ink-muted">{{ entry.closed ? 'Closed' : `${entry.open} – ${entry.close}` }}</span>
           </li>
         </ul>
 
         <a
           :href="practice.mapsDirectionsUrl"
-          class="mt-6 inline-flex h-11 items-center rounded-full bg-ink px-5 text-sm font-semibold text-white"
+          class="mt-6 inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-white"
           target="_blank"
           rel="noreferrer"
         >
@@ -57,7 +59,7 @@ const status = computed(() => getOpenStatus())
         </a>
       </div>
 
-      <div class="mt-6 overflow-hidden rounded-3xl ring-1 ring-ink/8">
+      <div class="card mt-6 overflow-hidden rounded-2xl">
         <iframe
           title="Map of Dental Care on Yellow Bluff"
           :src="practice.mapsEmbedUrl"

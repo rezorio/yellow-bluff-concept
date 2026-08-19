@@ -16,24 +16,24 @@ import SiteLogo from './SiteLogo.vue'
         </p>
         <a
           :href="practice.phoneHref"
-          class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sand"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-sand"
         >
-          <Phone class="h-4 w-4" />
+          <Phone class="h-4 w-4" :stroke-width="1.75" />
           {{ practice.phoneDisplay }}
         </a>
       </div>
 
       <div>
-        <p class="font-serif text-lg">Explore</p>
-        <ul class="mt-4 space-y-2 text-sm text-white/75">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Explore</p>
+        <ul class="mt-4 space-y-2 text-sm text-white/85">
           <li v-for="link in navLinks" :key="link.to">
-            <RouterLink :to="link.to" class="hover:text-white">{{ link.label }}</RouterLink>
+            <RouterLink :to="link.to" class="hover:text-sand">{{ link.label }}</RouterLink>
           </li>
         </ul>
       </div>
 
       <div>
-        <p class="font-serif text-lg">Hours</p>
+        <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Hours</p>
         <ul class="mt-4 space-y-1.5 text-sm text-white/75">
           <li
             v-for="entry in practice.hours"
@@ -48,7 +48,7 @@ import SiteLogo from './SiteLogo.vue'
     </div>
 
     <div class="border-t border-white/10">
-      <div class="mx-auto max-w-6xl space-y-3 px-4 py-6 text-[12px] leading-relaxed text-white/55 sm:px-6">
+      <div class="mx-auto max-w-6xl space-y-3 px-4 py-6 text-[11px] leading-relaxed text-white/50 sm:px-6">
         <p>{{ practice.affiliation }}</p>
         <p>{{ practice.aarp }}</p>
         <p>

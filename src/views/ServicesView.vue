@@ -6,12 +6,13 @@ import ServiceCard from '../components/shared/ServiceCard.vue'
 
 <template>
   <PageHero
-    eyebrow="Our services"
+    eyebrow="Care"
     title="Smile with confidence."
     copy="You deserve a smile that looks good and works well — the team at Dental Care on Yellow Bluff is ready to help you get there."
   />
-  <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="bg-mist">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <ServiceCard v-for="service in services" :key="service.id" :service="service" />
     </div>
     <p class="mt-10 text-center text-sm text-ink-muted">
@@ -19,5 +20,6 @@ import ServiceCard from '../components/shared/ServiceCard.vue'
       <RouterLink to="/visit" class="font-semibold text-brand">Request a visit</RouterLink>
       and we’ll help you sort it out.
     </p>
+    </div>
   </section>
 </template>

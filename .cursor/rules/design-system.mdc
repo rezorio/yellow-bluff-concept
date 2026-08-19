@@ -1,0 +1,22 @@
+---
+description: Locked Mist palette and UI rules for the Yellow Bluff pitch site
+globs: src/**/*.{vue,css}
+alwaysApply: false
+---
+
+# Design system
+
+One palette. Do not add a theme switcher back.
+
+| Token | Hex | Use |
+|---|---|---|
+| `brand` | `#0f6b73` | CTAs, links, icon wells, header strip |
+| `mist` | `#d7e6e5` | Alternate section fills |
+| `sand` | `#c5b48a` | Stars, small labels, Popular badge |
+| `cream` | `#e4ebe9` | Page background |
+| `card` | `#f3eee4` | Solid cards (`.card`) |
+| `ink` | `#1a2423` | Type, footer |
+
+Glass (`.glass-frost`) only on the hero panel and reviews pill. All other surfaces use `.card` or `bg-brand`.
+
+Header has a 4px `border-t-brand`. Radius `rounded-lg` / `rounded-2xl`. Type: Fraunces headings, Figtree UI.

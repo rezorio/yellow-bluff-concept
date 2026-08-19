@@ -5,21 +5,26 @@
   --color-brand-dark: #0a555c;
   --color-brand-deep: #083f45;
   --color-sand: #c5b48a;
-  --color-sand-light: #e8dfc8;
-  --color-cream: #f7f3ea;
-  --color-ink: #1a1a1a;
-  --color-ink-muted: #4a4743;
-  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-sand-light: #d7c9a8;
+  --color-mist: #d7e6e5;
+  --color-cream: #e4ebe9;
+  --color-card: #f3eee4;
+  --color-ink: #1a2423;
+  --color-ink-muted: #44514f;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --radius-clinical: 0.75rem;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
   margin: 0;
-  background: var(--color-cream);
+  background-color: var(--color-cream);
+  background-image: radial-gradient(rgb(15 107 115 / 0.09) 1px, transparent 1.2px);
+  background-size: 22px 22px;
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -30,6 +35,25 @@ body {
 }
 
 ::selection {
-  background: var(--color-sand-light);
+  background: var(--color-mist);
   color: var(--color-ink);
+}
+
+@layer components {
+  .card {
+    border: 1px solid rgb(26 36 35 / 0.08);
+    background: var(--color-card);
+    box-shadow: 0 10px 28px rgb(26 36 35 / 0.05);
+  }
+
+  .glass-frost {
+    border: 1px solid rgb(255 255 255 / 0.42);
+    background: rgb(255 255 255 / 0.1);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      0 10px 30px rgb(26 26 26 / 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateZ(0);
+  }
 }

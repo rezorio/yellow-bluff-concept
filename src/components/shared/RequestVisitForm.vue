@@ -54,15 +54,18 @@ function resetForm() {
   form.reason = 'New patient exam'
   form.notes = ''
 }
+
+const fieldClass =
+  'mt-1 h-11 w-full rounded-lg border border-ink/12 bg-cream/80 px-3 outline-none ring-brand/25 focus:ring-2'
 </script>
 
 <template>
-  <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-ink/8 sm:p-8">
+  <div class="card rounded-2xl p-5 sm:p-6">
     <div v-if="submitted" class="text-center">
-      <span class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-brand/10 text-brand">
-        <Check class="h-6 w-6" />
+      <span class="mx-auto grid h-11 w-11 place-items-center rounded-lg bg-brand/10 text-brand">
+        <Check class="h-5 w-5" :stroke-width="1.75" />
       </span>
-      <h3 class="mt-4 font-serif text-2xl text-ink">Request received</h3>
+      <h3 class="mt-4 font-serif text-2xl font-medium text-ink">Request received</h3>
       <p class="mt-2 text-sm leading-relaxed text-ink-muted">
         This is a concept demo, so nothing was sent to the office. In a live site, the team would
         call you back to confirm a time. You can still call
@@ -71,7 +74,7 @@ function resetForm() {
       </p>
       <button
         type="button"
-        class="mt-6 inline-flex h-11 items-center rounded-full bg-ink px-5 text-sm font-semibold text-white"
+        class="mt-6 inline-flex h-11 items-center rounded-lg bg-ink px-5 text-sm font-semibold text-white"
         @click="resetForm"
       >
         Send another request
@@ -80,7 +83,7 @@ function resetForm() {
 
     <form v-else class="space-y-4" @submit.prevent="onSubmit">
       <div>
-        <h3 class="font-serif text-2xl text-ink">Request a visit</h3>
+        <h3 class="font-serif text-2xl font-medium tracking-tight text-ink">Request a visit</h3>
         <p class="mt-1 text-sm text-ink-muted">
           Demo form only — we will not store or email this information.
         </p>
@@ -88,42 +91,26 @@ function resetForm() {
 
       <label class="block text-sm font-medium text-ink">
         Full name
-        <input
-          v-model="form.name"
-          type="text"
-          autocomplete="name"
-          class="mt-1 h-11 w-full rounded-xl border border-ink/15 bg-cream px-3 outline-none ring-brand/30 focus:ring-2"
-        />
+        <input v-model="form.name" type="text" autocomplete="name" :class="fieldClass" />
         <span v-if="errors.name" class="mt-1 block text-xs text-red-700">{{ errors.name }}</span>
       </label>
 
       <label class="block text-sm font-medium text-ink">
         Phone
-        <input
-          v-model="form.phone"
-          type="tel"
-          autocomplete="tel"
-          class="mt-1 h-11 w-full rounded-xl border border-ink/15 bg-cream px-3 outline-none ring-brand/30 focus:ring-2"
-        />
+        <input v-model="form.phone" type="tel" autocomplete="tel" :class="fieldClass" />
         <span v-if="errors.phone" class="mt-1 block text-xs text-red-700">{{ errors.phone }}</span>
       </label>
 
       <label class="block text-sm font-medium text-ink">
         Preferred time
-        <select
-          v-model="form.preferredDay"
-          class="mt-1 h-11 w-full rounded-xl border border-ink/15 bg-cream px-3 outline-none ring-brand/30 focus:ring-2"
-        >
+        <select v-model="form.preferredDay" :class="fieldClass">
           <option v-for="option in dayOptions" :key="option" :value="option">{{ option }}</option>
         </select>
       </label>
 
       <label class="block text-sm font-medium text-ink">
         Reason for visit
-        <select
-          v-model="form.reason"
-          class="mt-1 h-11 w-full rounded-xl border border-ink/15 bg-cream px-3 outline-none ring-brand/30 focus:ring-2"
-        >
+        <select v-model="form.reason" :class="fieldClass">
           <option v-for="option in reasonOptions" :key="option" :value="option">{{ option }}</option>
         </select>
       </label>
@@ -133,13 +120,13 @@ function resetForm() {
         <textarea
           v-model="form.notes"
           rows="3"
-          class="mt-1 w-full rounded-xl border border-ink/15 bg-cream px-3 py-2 outline-none ring-brand/30 focus:ring-2"
+          class="mt-1 w-full rounded-lg border border-ink/12 bg-cream/80 px-3 py-2 outline-none ring-brand/25 focus:ring-2"
         />
       </label>
 
       <button
         type="submit"
-        class="inline-flex h-12 w-full items-center justify-center rounded-full bg-brand text-sm font-semibold text-white transition hover:bg-brand-dark"
+        class="inline-flex h-11 w-full items-center justify-center rounded-lg bg-brand text-sm font-semibold text-white transition hover:bg-brand-dark"
       >
         Request a callback
       </button>

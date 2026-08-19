@@ -1,0 +1,22 @@
+---
+description: Yellow Bluff pitch site identity, scope, and where to edit things
+alwaysApply: true
+---
+
+# Yellow Bluff concept
+
+Frontend-only Vue 3 pitch mock for Dental Care on Yellow Bluff (Jacksonville, FL). Not the live site. No backend, booking, insurance checker, search, or live chat.
+
+**Lookup doc:** [docs/project.md](docs/project.md) — architecture, tokens, change map.
+
+**Live:** https://rezorio.github.io/yellow-bluff-concept/
+
+## Edit map
+
+- Colors/type → `src/style.css` + `index.html` fonts
+- Phone/hours/address → `src/data/practice.js`
+- Doctors/services/nav → `src/data/*.js` (do not hardcode in views)
+- Pages → `src/views/` + `src/components/`
+- Keep the concept banner on every page
+
+Vue 3 `<script setup>`, Tailwind v4 tokens (`bg-brand`, `font-serif`), Lucide via `@lucide/vue`.

@@ -10,6 +10,7 @@ export const services = [
       'Talk with the team about the right option for you',
     ],
     featured: true,
+    emphasis: 'default',
   },
   {
     id: 'invisalign',
@@ -18,6 +19,7 @@ export const services = [
     blurb: 'Straighten your smile with clear aligners that fit your everyday life.',
     details: ['Clear, removable aligners', 'Custom treatment planned around your smile'],
     featured: true,
+    emphasis: 'highlight',
   },
   {
     id: 'cosmetic',
@@ -26,6 +28,7 @@ export const services = [
     blurb: 'Smile makeovers, bonding, and veneers to help you love what you see.',
     details: ['Smile makeovers', 'Tooth bonding', 'Veneers'],
     featured: true,
+    emphasis: 'default',
   },
   {
     id: 'preventative',
@@ -34,6 +37,7 @@ export const services = [
     blurb: 'Cleanings, checkups, sealants, and mouth guards that keep problems small.',
     details: ['Dental cleanings & checkups', 'Sealants', 'Mouth guards'],
     featured: true,
+    emphasis: 'default',
   },
   {
     id: 'implants',
@@ -42,6 +46,7 @@ export const services = [
     blurb: 'A lasting way to replace missing teeth and restore how you chew and smile.',
     details: ['Replace missing teeth', 'Natural look and feel'],
     featured: true,
+    emphasis: 'highlight',
   },
   {
     id: 'emergency',
@@ -50,6 +55,7 @@ export const services = [
     blurb: 'Cracked teeth, trauma, or sudden pain — call us and we will help you next.',
     details: ['Emergency dental care', 'Cracked teeth', 'Oral trauma'],
     featured: true,
+    emphasis: 'urgent',
   },
   {
     id: 'periodontics',
@@ -93,4 +99,8 @@ export const services = [
   },
 ]
 
-export const featuredServices = services.filter((service) => service.featured)
+const emphasisRank = { urgent: 0, highlight: 1, default: 2 }
+
+export const featuredServices = services
+  .filter((service) => service.featured)
+  .sort((a, b) => (emphasisRank[a.emphasis] ?? 2) - (emphasisRank[b.emphasis] ?? 2))

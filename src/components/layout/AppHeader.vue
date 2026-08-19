@@ -18,45 +18,45 @@ watch(
 </script>
 
 <template>
-  <header class="sticky top-0 z-40 border-b border-white/10 bg-ink text-white">
+  <header class="sticky top-0 z-40 border-b border-ink/10 border-t-4 border-t-brand bg-cream text-ink">
     <div class="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 lg:px-6">
       <button
         type="button"
-        class="grid h-11 w-11 place-items-center rounded-full text-white lg:hidden"
+        class="grid h-10 w-10 place-items-center rounded-lg border border-ink/10 text-ink lg:hidden"
         :aria-expanded="menuOpen"
         aria-controls="mobile-nav"
         aria-label="Toggle menu"
         @click="menuOpen = !menuOpen"
       >
-        <X v-if="menuOpen" class="h-6 w-6" />
-        <Menu v-else class="h-6 w-6" />
+        <X v-if="menuOpen" class="h-5 w-5" :stroke-width="1.75" />
+        <Menu v-else class="h-5 w-5" :stroke-width="1.75" />
       </button>
 
-      <SiteLogo light />
+      <SiteLogo />
 
-      <nav class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Primary">
+      <nav class="ml-auto hidden items-center gap-0.5 lg:flex" aria-label="Primary">
         <RouterLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="rounded-full px-3 py-2 text-sm font-medium text-white/80 transition hover:text-white"
-          active-class="bg-white/10 text-white"
+          class="rounded-lg px-3 py-2 text-[13px] font-medium tracking-wide text-ink-muted transition hover:bg-ink/5 hover:text-ink"
+          active-class="bg-ink/8 text-ink"
         >
           {{ link.label }}
         </RouterLink>
       </nav>
 
-      <div class="ml-auto flex items-center gap-2 lg:ml-6">
+      <div class="ml-auto flex items-center gap-2 lg:ml-4">
         <a
           :href="practice.phoneHref"
-          class="hidden items-center gap-2 text-sm font-medium text-sand xl:inline-flex"
+          class="hidden items-center gap-2 text-[13px] font-medium text-ink-muted xl:inline-flex"
         >
-          <Phone class="h-4 w-4" />
+          <Phone class="h-3.5 w-3.5" :stroke-width="1.75" />
           {{ practice.phoneDisplay }}
         </a>
         <RouterLink
           to="/visit"
-          class="inline-flex h-11 items-center rounded-full bg-brand px-4 text-sm font-semibold text-white transition hover:bg-brand-dark"
+          class="inline-flex h-10 items-center rounded-lg bg-brand px-4 text-[13px] font-semibold text-white transition hover:bg-brand-dark"
         >
           Request a Visit
         </RouterLink>
@@ -66,15 +66,15 @@ watch(
     <div
       v-if="menuOpen"
       id="mobile-nav"
-      class="border-t border-white/10 bg-ink px-4 py-4 lg:hidden"
+      class="border-t border-ink/10 bg-cream px-4 py-3 lg:hidden"
     >
       <nav class="flex flex-col gap-1" aria-label="Mobile">
         <RouterLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="rounded-xl px-3 py-3 text-base font-medium text-white/85"
-          active-class="bg-white/10 text-white"
+          class="rounded-lg px-3 py-3 text-sm font-medium text-ink"
+          active-class="bg-brand/10 text-brand"
         >
           {{ link.label }}
         </RouterLink>

@@ -1,0 +1,22 @@
+---
+description: Folder layout, routing, and data flow for the Yellow Bluff Vue app
+globs: src/**/*.{vue,js}
+alwaysApply: false
+---
+
+# Architecture
+
+```
+src/data/                 content only
+src/components/layout/    banner, header, footer, sticky call bar
+src/components/home/      homepage sections
+src/components/shared/    cards, form, headings
+src/views/                one file per route
+src/router/index.js       history + BASE_URL
+```
+
+Routes: `/` Home, `/services`, `/team`, `/visit`. Router uses `import.meta.env.BASE_URL`.
+
+`App.vue` shell: ConceptBanner → AppHeader → RouterView → AppFooter → StickyCallBar. Main `pb-28` on small screens.
+
+Import practice/doctors/services/nav from `src/data/`. `RequestVisitForm` is client-side only (success state, no POST). Featured home services = `featured: true` in `src/data/services.js`.
