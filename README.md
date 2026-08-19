@@ -2,6 +2,8 @@
 
 Frontend-only Vue 3 mock for a cold-email pitch. It is **not** the live website and is not affiliated with Orahh Care, Heartland Dental, or AARP.
 
+**Concept site:** [https://rezorio.github.io/yellow-bluff-concept/](https://rezorio.github.io/yellow-bluff-concept/)
+
 Live practice: [dentalcareonyellowbluff.com](https://dentalcareonyellowbluff.com)
 
 ## What’s in this mock
