@@ -14,24 +14,29 @@ const errors = reactive({
 const form = reactive({
   name: '',
   phone: '',
-  preferredDay: 'Weekday morning',
-  reason: 'New patient exam',
+  patientType: 'New patient',
+  reason: 'Tooth pain',
+  insurance: 'I will call to verify',
+  preferredDay: 'First available',
   notes: '',
 })
 
-const dayOptions = [
-  'Weekday morning',
-  'Weekday afternoon',
-  'First available',
-]
-
+const patientTypes = ['New patient', 'Returning patient']
+const dayOptions = ['First available', 'Weekday morning', 'Weekday afternoon']
 const reasonOptions = [
-  'New patient exam',
+  'Tooth pain / emergency',
   'Cleaning & checkup',
-  'Tooth pain',
-  'Cosmetic consult',
+  'New patient exam',
   'Invisalign®',
+  'Implants',
+  'Cosmetic consult',
   'Other',
+]
+const insuranceOptions = [
+  'I will call to verify',
+  'I have dental insurance',
+  'No insurance',
+  'Not sure',
 ]
 
 function validate() {
@@ -50,13 +55,15 @@ function resetForm() {
   submitted.value = false
   form.name = ''
   form.phone = ''
-  form.preferredDay = 'Weekday morning'
-  form.reason = 'New patient exam'
+  form.patientType = 'New patient'
+  form.reason = 'Tooth pain'
+  form.insurance = 'I will call to verify'
+  form.preferredDay = 'First available'
   form.notes = ''
 }
 
 const fieldClass =
-  'mt-1 h-11 w-full rounded-lg border border-ink/12 bg-cream/80 px-3 outline-none ring-brand/25 focus:ring-2'
+  'mt-1 h-11 w-full rounded-lg border border-ink/12 bg-cream px-3 outline-none ring-brand/25 focus:ring-2'
 </script>
 
 <template>
@@ -67,8 +74,8 @@ const fieldClass =
       </span>
       <h3 class="mt-4 font-serif text-2xl font-medium text-ink">Request received</h3>
       <p class="mt-2 text-sm leading-relaxed text-ink-muted">
-        This is a concept demo, so nothing was sent to the office. In a live site, the team would
-        call you back to confirm a time. You can still call
+        Demo only — nothing was sent to the office. A live site would route this to the front desk.
+        You can still call
         <a :href="practice.phoneHref" class="font-semibold text-brand">{{ practice.phoneDisplay }}</a>
         today.
       </p>
@@ -85,7 +92,7 @@ const fieldClass =
       <div>
         <h3 class="font-serif text-2xl font-medium tracking-tight text-ink">Request a visit</h3>
         <p class="mt-1 text-sm text-ink-muted">
-          Demo form only — we will not store or email this information.
+          Demo request — not live booking. We will not store or email this.
         </p>
       </div>
 
@@ -102,9 +109,9 @@ const fieldClass =
       </label>
 
       <label class="block text-sm font-medium text-ink">
-        Preferred time
-        <select v-model="form.preferredDay" :class="fieldClass">
-          <option v-for="option in dayOptions" :key="option" :value="option">{{ option }}</option>
+        New or returning
+        <select v-model="form.patientType" :class="fieldClass">
+          <option v-for="option in patientTypes" :key="option" :value="option">{{ option }}</option>
         </select>
       </label>
 
@@ -116,11 +123,25 @@ const fieldClass =
       </label>
 
       <label class="block text-sm font-medium text-ink">
+        Insurance
+        <select v-model="form.insurance" :class="fieldClass">
+          <option v-for="option in insuranceOptions" :key="option" :value="option">{{ option }}</option>
+        </select>
+      </label>
+
+      <label class="block text-sm font-medium text-ink">
+        Preferred time
+        <select v-model="form.preferredDay" :class="fieldClass">
+          <option v-for="option in dayOptions" :key="option" :value="option">{{ option }}</option>
+        </select>
+      </label>
+
+      <label class="block text-sm font-medium text-ink">
         Notes <span class="font-normal text-ink-muted">(optional)</span>
         <textarea
           v-model="form.notes"
           rows="3"
-          class="mt-1 w-full rounded-lg border border-ink/12 bg-cream/80 px-3 py-2 outline-none ring-brand/25 focus:ring-2"
+          class="mt-1 w-full rounded-lg border border-ink/12 bg-cream px-3 py-2 outline-none ring-brand/25 focus:ring-2"
         />
       </label>
 

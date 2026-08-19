@@ -1,21 +1,25 @@
 <script setup>
+import { useSkin } from '../../composables/useSkin'
+
 defineProps({
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   copy: { type: String, default: '' },
 })
+
+const { isStudio } = useSkin()
 </script>
 
 <template>
-  <section class="bg-mist px-4 pt-10 sm:px-6 sm:pt-14">
-    <div class="card mx-auto max-w-6xl rounded-2xl px-5 py-10 sm:px-8 sm:py-14">
-      <p v-if="eyebrow" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand">
+  <section class="px-4 py-12 sm:px-6 sm:py-16" :class="isStudio ? 'bg-cream' : 'bg-sand'">
+    <div class="mx-auto max-w-6xl">
+      <p v-if="eyebrow" class="text-xs font-bold uppercase tracking-[0.2em] text-brand-deep">
         {{ eyebrow }}
       </p>
-      <h1 class="mt-3 max-w-3xl font-serif text-4xl font-medium leading-tight tracking-tight text-ink sm:text-5xl">
+      <h1 class="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
         {{ title }}
       </h1>
-      <p v-if="copy" class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted sm:text-base">
+      <p v-if="copy" class="mt-4 max-w-2xl text-base leading-relaxed text-ink sm:text-lg">
         {{ copy }}
       </p>
       <slot />

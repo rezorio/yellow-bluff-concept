@@ -1,4 +1,5 @@
 <script setup>
+import CasesStrip from '../components/home/CasesStrip.vue'
 import DoctorsPreview from '../components/home/DoctorsPreview.vue'
 import HeroSection from '../components/home/HeroSection.vue'
 import HomeCta from '../components/home/HomeCta.vue'
@@ -12,6 +13,7 @@ import VisitHours from '../components/home/VisitHours.vue'
   <HeroSection />
   <TrustStrip />
   <ServicesPreview />
+  <CasesStrip />
   <DoctorsPreview />
   <PhotoBand />
   <VisitHours />

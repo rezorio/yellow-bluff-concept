@@ -7,10 +7,10 @@
   --color-sand: #c5b48a;
   --color-sand-light: #d7c9a8;
   --color-mist: #d7e6e5;
-  --color-cream: #e4ebe9;
-  --color-card: #f3eee4;
-  --color-ink: #1a2423;
-  --color-ink-muted: #44514f;
+  --color-cream: #efe8dc;
+  --color-card: #f7f3ea;
+  --color-ink: #141414;
+  --color-ink-muted: #2e2e2e;
   --font-serif: 'Fraunces', ui-serif, Georgia, serif;
   --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
   --radius-clinical: 0.75rem;
@@ -23,8 +23,6 @@ html {
 body {
   margin: 0;
   background-color: var(--color-cream);
-  background-image: radial-gradient(rgb(15 107 115 / 0.09) 1px, transparent 1.2px);
-  background-size: 22px 22px;
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -35,25 +33,33 @@ body {
 }
 
 ::selection {
-  background: var(--color-mist);
+  background: var(--color-sand);
   color: var(--color-ink);
+}
+
+[data-skin='studio'] {
+  --color-cream: #f6f4f0;
+  --color-sand: #f6f4f0;
+  --color-sand-light: #ece8e1;
+  --color-mist: #eef3f2;
+  --color-card: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #5c5c5c;
+}
+
+[data-skin='studio'] body {
+  background-color: #f6f4f0;
 }
 
 @layer components {
   .card {
-    border: 1px solid rgb(26 36 35 / 0.08);
+    border: 1px solid rgb(20 20 20 / 0.08);
     background: var(--color-card);
-    box-shadow: 0 10px 28px rgb(26 36 35 / 0.05);
+    box-shadow: 0 8px 24px rgb(20 20 20 / 0.06);
   }
 
-  .glass-frost {
-    border: 1px solid rgb(255 255 255 / 0.42);
-    background: rgb(255 255 255 / 0.1);
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.5),
-      0 10px 30px rgb(26 26 26 / 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transform: translateZ(0);
+  [data-skin='studio'] .card {
+    border-color: rgb(26 26 26 / 0.06);
+    box-shadow: 0 1px 0 rgb(26 26 26 / 0.04), 0 16px 40px rgb(26 26 26 / 0.04);
   }
 }

@@ -5,7 +5,7 @@ import SectionHeading from '../shared/SectionHeading.vue'
 </script>
 
 <template>
-  <section class="bg-cream">
+  <section class="bg-card">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading
@@ -15,7 +15,7 @@ import SectionHeading from '../shared/SectionHeading.vue'
         />
         <RouterLink
           to="/team"
-          class="text-sm font-medium text-brand underline-offset-4 hover:underline"
+          class="text-sm font-bold uppercase tracking-wide text-brand underline-offset-4 hover:underline"
         >
           Meet the full team
         </RouterLink>

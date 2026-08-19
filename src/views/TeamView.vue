@@ -2,6 +2,7 @@
 import { doctors } from '../data/doctors'
 import DoctorCard from '../components/shared/DoctorCard.vue'
 import PageHero from '../components/shared/PageHero.vue'
+import ScheduleCta from '../components/shared/ScheduleCta.vue'
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import PageHero from '../components/shared/PageHero.vue'
     title="Built around one goal: your dream smile."
     copy="Get to know the dentists who will sit down with you, explain the plan, and take the rush out of the chair."
   />
-  <section class="bg-cream">
+  <section class="bg-card">
     <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <div class="grid gap-5 md:grid-cols-2">
         <DoctorCard
@@ -19,6 +20,9 @@ import PageHero from '../components/shared/PageHero.vue'
           :doctor="doctor"
           detailed
         />
+      </div>
+      <div class="mt-10 flex justify-center">
+        <ScheduleCta large />
       </div>
     </div>
   </section>

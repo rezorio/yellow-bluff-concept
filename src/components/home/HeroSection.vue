@@ -1,50 +1,71 @@
 <script setup>
-import { ArrowRight, Phone } from '@lucide/vue'
+import { Phone } from '@lucide/vue'
+import { useSkin } from '../../composables/useSkin'
 import { practice } from '../../data/practice'
+import ScheduleCta from '../shared/ScheduleCta.vue'
+
+const { isStudio } = useSkin()
 </script>
 
 <template>
-  <section class="relative overflow-hidden">
-    <div
-      class="pointer-events-none absolute -left-16 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgb(15_107_115/0.22),transparent_70%)]"
-      aria-hidden="true"
+  <section v-if="isStudio" class="relative min-h-[78vh] overflow-hidden bg-ink">
+    <img
+      src="/images/hero.jpg"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover object-top opacity-70"
     />
-    <div
-      class="pointer-events-none absolute bottom-8 left-1/4 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgb(197_180_138/0.28),transparent_70%)]"
-      aria-hidden="true"
-    />
-
-    <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
-      <div class="glass-frost relative z-10 rounded-2xl p-6 sm:p-8">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/45 to-ink/10" />
+    <div class="relative mx-auto flex min-h-[78vh] max-w-6xl items-end px-4 py-16 sm:px-6 lg:items-center lg:py-24">
+      <div class="max-w-xl text-white">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-sand">
           Jacksonville, FL
         </p>
-        <h1 class="mt-4 font-serif text-4xl font-medium leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
+        <h1 class="mt-4 font-serif text-4xl font-medium leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
           {{ practice.tagline }}
         </h1>
-        <p class="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-muted sm:text-base">
+        <p class="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
           {{ practice.description }}
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <RouterLink
-            to="/visit"
-            class="inline-flex h-11 items-center gap-2 rounded-lg bg-brand px-5 text-sm font-semibold text-white transition hover:bg-brand-dark"
-          >
-            Request a Visit
-            <ArrowRight class="h-4 w-4" :stroke-width="1.75" />
-          </RouterLink>
+          <ScheduleCta large />
           <a
             :href="practice.phoneHref"
-            class="glass-frost inline-flex h-11 items-center gap-2 rounded-lg px-5 text-sm font-semibold text-ink"
+            class="inline-flex h-14 items-center gap-2 rounded-lg border border-white/40 px-6 text-base font-semibold text-white"
           >
-            <Phone class="h-4 w-4" :stroke-width="1.75" />
+            <Phone class="h-5 w-5" :stroke-width="1.75" />
+            {{ practice.phoneDisplay }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section v-else class="bg-sand">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-deep">
+          Jacksonville, FL
+        </p>
+        <h1 class="mt-4 font-serif text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+          {{ practice.tagline }}
+        </h1>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-ink sm:text-lg">
+          {{ practice.description }}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <ScheduleCta large />
+          <a
+            :href="practice.phoneHref"
+            class="inline-flex h-14 items-center gap-2 rounded-lg border-2 border-ink bg-transparent px-6 text-base font-semibold text-ink"
+          >
+            <Phone class="h-5 w-5" :stroke-width="1.75" />
             {{ practice.phoneDisplay }}
           </a>
         </div>
       </div>
 
       <div class="relative">
-        <div class="overflow-hidden rounded-2xl border border-white/40 shadow-[0_20px_50px_rgba(26,26,26,0.16)]">
+        <div class="overflow-hidden rounded-2xl border-4 border-ink/10">
           <img
             src="/images/hero.jpg"
             alt="Patient with a confident smile"
@@ -52,10 +73,10 @@ import { practice } from '../../data/practice'
           />
         </div>
         <div
-          class="glass-frost absolute bottom-4 left-4 right-4 rounded-xl px-4 py-3 text-sm text-ink sm:left-auto sm:right-4 sm:w-56"
+          class="absolute bottom-4 left-4 right-4 rounded-lg bg-brand px-4 py-3 text-sm text-white sm:left-auto sm:right-4 sm:w-56"
         >
-          <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">Private care</p>
-          <p class="mt-1 text-ink-muted">Calm rooms. Clear plans. No rush.</p>
+          <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-sand">Private care</p>
+          <p class="mt-1 font-medium">Calm rooms. Clear plans. No rush.</p>
         </div>
       </div>
     </div>

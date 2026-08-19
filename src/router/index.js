@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import InsuranceView from '../views/InsuranceView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import TeamView from '../views/TeamView.vue'
 import VisitView from '../views/VisitView.vue'
@@ -14,6 +15,7 @@ const router = createRouter({
     { path: '/services', name: 'services', component: ServicesView },
     { path: '/team', name: 'team', component: TeamView },
     { path: '/visit', name: 'visit', component: VisitView },
+    { path: '/insurance', name: 'insurance', component: InsuranceView },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
 })

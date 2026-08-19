@@ -1,22 +1,15 @@
 ---
-description: Locked Mist palette and UI rules for the Yellow Bluff pitch site
+description: Pitch skins — Brand refresh (loud) vs Studio (premium light)
 globs: src/**/*.{vue,css}
 alwaysApply: false
 ---
 
 # Design system
 
-One palette. Do not add a theme switcher back.
+Two skins via `document.documentElement.dataset.skin` and `useSkin()`.
 
-| Token | Hex | Use |
-|---|---|---|
-| `brand` | `#0f6b73` | CTAs, links, icon wells, header strip |
-| `mist` | `#d7e6e5` | Alternate section fills |
-| `sand` | `#c5b48a` | Stars, small labels, Popular badge |
-| `cream` | `#e4ebe9` | Page background |
-| `card` | `#f3eee4` | Solid cards (`.card`) |
-| `ink` | `#1a2423` | Type, footer |
+**Brand refresh (default):** ink header, tan slabs, black reviews bar, uppercase Schedule, teal visit block.
 
-Glass (`.glass-frost`) only on the hero panel and reviews pill. All other surfaces use `.card` or `bg-brand`.
+**Studio:** white header, photo-first hero, quiet trust line, white visit card, light footer. Same teal accent.
 
-Header has a 4px `border-t-brand`. Radius `rounded-lg` / `rounded-2xl`. Type: Fraunces headings, Figtree UI.
+ROI extras on both skins: Insurance nav, Emergency? Call, Cases strip, stepped visit form (demo, not live booking).

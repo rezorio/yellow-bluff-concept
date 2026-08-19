@@ -9,7 +9,7 @@ import StickyCallBar from './components/layout/StickyCallBar.vue'
   <div class="min-h-dvh bg-cream text-ink">
     <ConceptBanner />
     <AppHeader />
-    <main class="pb-28 lg:pb-0">
+    <main class="pb-24 lg:pb-0">
       <RouterView />
     </main>
     <AppFooter />

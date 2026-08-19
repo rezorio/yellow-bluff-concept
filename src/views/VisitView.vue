@@ -15,9 +15,9 @@ const status = computed(() => getOpenStatus())
     copy="Call, get directions, or request a callback. New patients are welcome."
   >
     <p
-      class="mt-5 inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-cream/80 px-3 py-1.5 text-sm text-ink"
+      class="mt-5 inline-flex items-center gap-2 rounded-lg bg-ink px-3 py-2 text-sm font-semibold text-white"
     >
-      <Clock class="h-4 w-4 text-brand" :stroke-width="1.75" />
+      <Clock class="h-4 w-4 text-sand" :stroke-width="1.75" />
       {{ status.label }}
     </p>
   </PageHero>
